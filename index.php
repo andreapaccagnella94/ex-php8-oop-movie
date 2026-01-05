@@ -29,8 +29,38 @@ require_once "./db.php";
 </head>
 
 <body>
+    <div class="container">
+        <h1>PHP Classe Movie</h1>
 
-    <h1>PHP Classe Movie</h1>
+        <div class="container">
+            <div class="row gap-4">
+
+
+                <?php
+                foreach ($movies as $movie) { ?>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"> <?php echo $movie->title; ?> </h4>
+                                <h5 class="card-subtitle mb-2 text-muted"><?php echo $movie->director; ?></h5>
+                                <p class="card-text">Anno di uscita: <?php echo $movie->releaseYear; ?></p>
+                                <p class="card-text">Descrizione: <?php echo $movie->description; ?></p>
+                                <p class="card-text"><strong>Generi:</strong>
+                                    <?php
+                                    foreach ($movie->getGenreName() as $name) {
+                                        echo "$name ";
+                                    }
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
+    </div>
 
 </body>
 
