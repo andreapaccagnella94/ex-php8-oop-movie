@@ -6,7 +6,9 @@ class Movie
     // proprità della classe
     public $title;
     public $director;
-    protected Genre $genre; // sappiamo già che dovrà essere una classe anche lui e che potranno essere più di una
+    //protected Genre $genre; // sappiamo già che dovrà essere una classe anche lui e che potranno essere più di una
+    // se vogliamo più generi serve un array
+    protected array $genres = [];
     public $releaseYear;
     public $description;
 
@@ -15,20 +17,37 @@ class Movie
     {
         $this->title = $_title;
         $this->director = $_director;
-        $this->genre = $_genre;
+        // $this->genre = $_genre; non serve più perchè ora dovremmo fare la verifica che il singolo genere soddisfi Genre
         $this->releaseYear = $_releaseYear;
         $this->description = $_description;
+        // verifica se i generei rispecchiano Genre sia array che variabile singola
+        if (is_array($_genre)) {
+            foreach ($_genre as $g) {
+                if ($g instanceof Genre) {
+                    $this->genres[] = $g;
+                }
+            }
+        } elseif ($_genre instanceof Genre) {
+            $this->genres[] = $_genre;
+        }
     }
 
-    // mi creo un metodo che aggiunge i generi e per sapere quali sono visto che sono protected
-    /* public function addGenre(Genre $genre)
+    // mi creo un metodo che aggiunge i generi e per sapere quali sono visto che sono protected sia il nome singolo
+    public function addGenre(Genre $genre)
     {
-        $this->genre[] = $genre;
-    } */
+        $this->genres[] = $genre;
+    }
+
+    public function getGenres()
+    {
+        return $this->genres;
+    }
 
     public function getGenreName()
     {
-        return $this->genre->getName();
+        return array_map(function ($g) {
+            return $g->getName();
+        }, $this->genres);
     }
 
 
@@ -44,11 +63,6 @@ class Movie
     public function getDirector()
     {
         return $this->director;
-    }
-
-    public function getGenre()
-    {
-        return $this->genre;
     }
 
     public function getReleaseYear()
