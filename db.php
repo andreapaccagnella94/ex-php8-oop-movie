@@ -12,11 +12,11 @@ $LaVitaEBella = new Movie("La vita è bella", "Roberto Benigni", $commedia, 1997
 
 // aggiungo i generi collegati a Genre
 // $Inception->addGenre($sciFi);
-// $Inception->addGenre($thriller);
-// $Inception->genre = ["ciao", "pierino"]; // perdo la relazione con Genre
+$Inception->addGenre($thriller);
+// $Inception->genre = ["ciao", "pierino"]; // perdo la relazione con Genre // ora mi da errore
 
 // $LaVitaEBella->addGenre($commedia);
-// $LaVitaEBella->addGenre($drammatico);
+$LaVitaEBella->addGenre($drammatico);
 
 // aggiungo un po' di valutazioni
 $Inception->addRating(5);
