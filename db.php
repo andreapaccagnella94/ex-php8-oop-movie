@@ -7,16 +7,16 @@ $drammatico = new Genre("Drammatico", "Genere che si concentra su temi seri e pr
 
 
 // creo delle istanze di film reali
-$Inception = new Movie("Inception", "Christopher Nolan", 2010, "Un ladro esperto nel furto di segreti aziendali viene incaricato di un'impresa apparentemente impossibile: piantare un'idea nella mente di qualcun altro.");
-$LaVitaEBella = new Movie("La vita è bella", "Roberto Benigni", 1997, "Un ebreo italiano utilizza la fantasia e l'umorismo per proteggere suo figlio dalle atrocità di un campo di concentramento nazista.");
+$Inception = new Movie("Inception", "Christopher Nolan", $sciFi, 2010, "Un ladro esperto nel furto di segreti aziendali viene incaricato di un'impresa apparentemente impossibile: piantare un'idea nella mente di qualcun altro.");
+$LaVitaEBella = new Movie("La vita è bella", "Roberto Benigni", $commedia, 1997, "Un ebreo italiano utilizza la fantasia e l'umorismo per proteggere suo figlio dalle atrocità di un campo di concentramento nazista.");
 
 // aggiungo i generi collegati a Genre
-$Inception->addGenre($sciFi);
-$Inception->addGenre($thriller);
+// $Inception->addGenre($sciFi);
+// $Inception->addGenre($thriller);
 // $Inception->genre = ["ciao", "pierino"]; // perdo la relazione con Genre
 
-$LaVitaEBella->addGenre($commedia);
-$LaVitaEBella->addGenre($drammatico);
+// $LaVitaEBella->addGenre($commedia);
+// $LaVitaEBella->addGenre($drammatico);
 
 // aggiungo un po' di valutazioni
 $Inception->addRating(5);
@@ -28,3 +28,5 @@ $LaVitaEBella->addRating(5);
 $LaVitaEBella->addRating(3);
 $LaVitaEBella->addRating(2);
 $LaVitaEBella->addRating(2);
+
+$movies = [$Inception, $LaVitaEBella];

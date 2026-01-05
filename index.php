@@ -1,18 +1,20 @@
 <?php
-
+// importo i traits
 require_once "./Traits/Rating.php";
 
+// importo le classi
+require_once "./Models/Genre.php";
 require_once "./Models/Movie.php";
 
-require_once "./Models/Genre.php";
-
+// creo le mie informazioni
 require_once "./db.php";
 
 // vedo i risultati
-var_dump($Inception);
-echo $Inception->getAverageRating();
-var_dump($LaVitaEBella);
-echo $LaVitaEBella->getAverageRating();
+// var_dump($Inception);
+// echo $Inception->getAverageRating();
+// var_dump($LaVitaEBella);
+// echo $LaVitaEBella->getAverageRating();
+var_dump($movies);
 ?>
 
 <!DOCTYPE html>

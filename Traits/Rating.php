@@ -2,7 +2,7 @@
 
 trait Rating
 {
-    private array $ratings;
+    protected array $ratings;
 
     // Metodo per aggiungere una valutazione
     public function addRating($rating)

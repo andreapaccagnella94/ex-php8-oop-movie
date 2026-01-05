@@ -6,25 +6,31 @@ class Movie
     // proprità della classe
     public $title;
     public $director;
-    public array  $genre; // sappiamo già che dovrà essere una classe anche lui e che potranno essere più di una
+    protected Genre $genre; // sappiamo già che dovrà essere una classe anche lui e che potranno essere più di una
     public $releaseYear;
     public $description;
 
     // definisco il costruttore
-    public function __construct($_title, $_director, $_releaseYear, $_description)
+    public function __construct($_title, $_director, $_genre, $_releaseYear, $_description)
     {
         $this->title = $_title;
         $this->director = $_director;
-        // $this->genre = $_genre;
+        $this->genre = $_genre;
         $this->releaseYear = $_releaseYear;
         $this->description = $_description;
     }
 
-    // mi creo un metodo che aggiunge i generi
-    public function addGenre(Genre $genre)
+    // mi creo un metodo che aggiunge i generi e per sapere quali sono visto che sono protected
+    /* public function addGenre(Genre $genre)
     {
         $this->genre[] = $genre;
+    } */
+
+    public function getGenreName()
+    {
+        return $this->genre->getName();
     }
+
 
     // uso il trait per le valutazione
     use Rating;
